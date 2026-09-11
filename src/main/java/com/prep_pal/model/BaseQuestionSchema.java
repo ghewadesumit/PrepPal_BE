@@ -6,22 +6,25 @@ import org.springframework.data.annotation.Id;
 
 import com.prep_pal.constants.QuestionDifficulty;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.Setter;
 
 
 @Data
 @Getter                 
 @Setter                 
-@NoArgsConstructor      
-@AllArgsConstructor  
+@NoArgsConstructor     
+@AllArgsConstructor 
 public class BaseQuestionSchema {
 
     @Id
     private String id;
+
+    private String userId;
+    
     private String name;
 
     private String link;
