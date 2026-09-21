@@ -17,4 +17,14 @@ public class AuthController {
             "user", user.getAttributes()
         );
     }
+
+    @GetMapping("/api/auth/me")
+    public Map<String, Object> currentUser(@AuthenticationPrincipal OAuth2User user) {
+        return Map.of(
+            "googleId", user.getAttribute("sub"),
+            "email", user.getAttribute("email"),
+            "name", user.getAttribute("name"),
+            "pictureUrl", user.getAttribute("picture")
+        );
+    }
 }

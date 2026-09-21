@@ -1,5 +1,7 @@
 package com.prep_pal.config;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -8,8 +10,6 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
-import java.util.List;
 
 import com.prep_pal.service.OAuth2UserService;
 
@@ -33,7 +33,7 @@ public class SecurityConfig {
              .requestMatchers("/login/**", "/oauth2/**").permitAll()
             .anyRequest().authenticated()) // all routes require authentication
             .oauth2Login(oAuth2 -> oAuth2
-                .defaultSuccessUrl("/login-success", true)
+                .defaultSuccessUrl("http://localhost:5173/PrepPal/karam-bhomi", true)
                 .userInfoEndpoint(userInfo-> userInfo
                     .userService(oAuth2UserService)
                 )
