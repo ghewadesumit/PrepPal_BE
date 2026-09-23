@@ -30,7 +30,7 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable()) // only disable for early API development
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .authorizeHttpRequests(auth -> auth
-             .requestMatchers("/login/**", "/oauth2/**").permitAll()
+             .requestMatchers("/login/**", "/oauth2/**", "/api/v1/company/**").permitAll()
             .anyRequest().authenticated()) // all routes require authentication
             .oauth2Login(oAuth2 -> oAuth2
                 .defaultSuccessUrl("http://localhost:5173/PrepPal/karam-bhomi", true)
